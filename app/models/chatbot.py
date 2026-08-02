@@ -17,3 +17,4 @@ class ChatBot(Base):
     # linking chatbots with user
     owner = relationship("User", back_populates="chatbots")
 
+    documents = relationship("Document", back_populates="chatbot", cascade="all, delete-orphan")

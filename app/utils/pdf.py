@@ -1,0 +1,23 @@
+from tkinter import N
+
+from pypdf import PdfReader
+
+def extract_text_from_pdf(file_path: str) -> str:
+    try:
+        reader = PdfReader(file_path)
+        extracted_text = ""
+
+        for page in reader.pages:
+            text = page.extract_text()
+            if text:
+                extracted_text += text + "\n"
+
+        return extracted_text
+    
+    except Exception as e:
+        print(f"Failed to read PDF: {e}")
+        return ""
+
+
+
+
