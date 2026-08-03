@@ -10,6 +10,7 @@ class ChatBot(Base):
     color_theme = Column(String, default="#000000")
     model_type = Column(String, default="gpt-3.5-turbo")
     system_prompt = Column(String, default="Hey there!")
+    voice_support = Column(String, default=True)
 
     # foreign key
     owner_id = Column(Integer, ForeignKey("users.id"))

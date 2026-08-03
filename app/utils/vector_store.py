@@ -30,6 +30,20 @@ def add_chunk_to_vector_store(chunks: list[str], chatbot_id: int, document_id: i
         ids=ids
     )
 
+def search_vector_store(query_text: str, chatbot_id: int, top_k: int = 3) -> list[str]:
+    """
+    Searches ChromaDB for the top K most relevant text chunks matching the query
+    for a specific chatbot.
+    """
+    results = collection.query(
+        query_texts=[query_text],
+        n_results=top_k,
+        where={"chatbot_id": chatbot_id}
+    )
+    if results and "documents" in results and results["documents"]:
+        return results["documents"][0]
 
+    return []
+       
 
 
