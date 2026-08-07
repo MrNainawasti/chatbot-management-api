@@ -11,3 +11,4 @@ chromadb
 pypdf
 google-genai
 email-validator
+bcrypt==3.2.0
