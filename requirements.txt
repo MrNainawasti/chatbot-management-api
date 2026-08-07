@@ -7,7 +7,7 @@ python-dotenv
 passlib[bcrypt]
 pyjwt
 python-multipart
-chromadb
+chromadb>=1.0.0
 pypdf
 google-genai
 email-validator
